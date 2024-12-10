@@ -131,7 +131,3 @@ MIT License - see the [LICENSE](LICENSE) file for details
 - Open an issue for bugs/feature requests
 - Submit a PR to contribute
 - Contact maintainers for other questions
-
-## Changelog
-
-See [CHANGELOG.md](CHANGELOG.md) for release history
