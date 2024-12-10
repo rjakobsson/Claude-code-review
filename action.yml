@@ -1,0 +1,21 @@
+# action.yml
+name: 'Claude Code Review'
+description: 'Automated code review using Claude'
+inputs:
+  github-token:
+    description: 'GitHub token'
+    required: true
+  anthropic-key:
+    description: 'Anthropic API key'
+    required: true
+  pr-number:
+    description: 'Pull request number'
+    required: true
+outputs:
+  diff_size:
+    description: 'Size of the relevant code changes'
+  review:
+    description: 'Generated code review'
+runs:
+  using: 'node20'
+  main: 'action.js'
