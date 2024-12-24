@@ -48,6 +48,9 @@ jobs:
           anthropic-key: ${{ secrets.ANTHROPIC_API_KEY }}
           pr-number: ${{ github.event.pull_request.number || inputs.pr_number }}
 ```
+- Click on "Claude Code Review" Action under Actions tab. 
+- Click "Run Workflow"
+- Fill in branch and pull request ID and click "Run Workflow"
 
 ## Setup
 
