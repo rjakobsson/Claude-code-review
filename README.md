@@ -13,28 +13,40 @@ A GitHub Action that performs automated code reviews using Claude AI.
 Add this to your GitHub workflow file (e.g. `.github/workflows/review.yml`):
 
 ```yaml
-name: Code Review
+name: Claude Code Review
+
+permissions:
+  contents: read
+  pull-requests: write
 
 on:
+  # Run on new/updated PRs
   pull_request:
     types: [opened, reopened, synchronize]
+  
+  # Allow manual triggers for existing PRs
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: 'Pull Request Number'
+        required: true
+        type: string
 
 jobs:
-  review:
+  code-review:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pull-requests: write
+    
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           
-      - uses: pacnpal/claude-code-review-action@v1
+      - name: Run Claude Review
+        uses: pacnpal/claude-code-review@v1.0.6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           anthropic-key: ${{ secrets.ANTHROPIC_API_KEY }}
-          pr-number: ${{ github.event.pull_request.number }}
+          pr-number: ${{ github.event.pull_request.number || inputs.pr_number }}
 ```
 
 ## Setup
