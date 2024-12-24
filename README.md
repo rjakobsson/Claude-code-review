@@ -30,7 +30,7 @@ jobs:
         with:
           fetch-depth: 0
           
-      - uses: your-username/claude-code-review-action@v1
+      - uses: pacnpal/claude-code-review-action@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           anthropic-key: ${{ secrets.ANTHROPIC_API_KEY }}
