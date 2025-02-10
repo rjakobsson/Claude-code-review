@@ -34,6 +34,7 @@ on:
 
 jobs:
   code-review:
+    environment: development
     runs-on: ubuntu-latest
     
     steps:
