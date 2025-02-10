@@ -94,7 +94,9 @@ For each issue found:
 - Provide specific recommendations for fixes
 - Include code examples where helpful
 
-If no issues are found in a particular area, explicitly state that. If it's a dependency update, evaluate with strict scrutiny the implications of the change.
+- If no issues are found in a particular area, explicitly state that. 
+- If it's a dependency update, evaluate with strict scrutiny the implications of the change.
+- No matter your findings, give a summary of the pull request.
 
 Here is the code diff to review:
 
