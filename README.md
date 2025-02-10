@@ -42,7 +42,7 @@ jobs:
           fetch-depth: 0
           
       - name: Run Claude Review
-        uses: pacnpal/claude-code-review@v1.0.8
+        uses: pacnpal/claude-code-review@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           anthropic-key: ${{ secrets.ANTHROPIC_API_KEY }}
