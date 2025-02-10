@@ -21,12 +21,6 @@ jobs:
           
       - name: Install dependencies
         run: npm ci
-        
-      - name: Rename existing dist/index.js
-        run: |
-          if [ -f dist/index.js ]; then
-            mv -f dist/index.js dist/index.js.old
-          fi
           
       - name: Build
         run: npm run build
