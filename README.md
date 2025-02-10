@@ -34,9 +34,8 @@ on:
 
 jobs:
   code-review:
-    environment: development
     runs-on: ubuntu-latest
-    
+    environment: development
     steps:
       - uses: actions/checkout@v4
         with:
