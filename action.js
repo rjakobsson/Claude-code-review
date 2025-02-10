@@ -48,26 +48,7 @@ async function getDiff(baseSha, headSha) {
       }
     });
 
-    // Filter for relevant files
-    const lines = diffContent.split('\n');
-    let filtered = '';
-    let keep = false;
-
-    for (const line of lines) {
-      if (line.startsWith('diff --git')) {
-        keep = false;
-        // Check if file type should be included
-        if (line.match(/\.(js|ts|py|cpp|h|java|cs)$/) && 
-            !line.match(/(package-lock\.json|yarn\.lock|\.md|\.json)/)) {
-          keep = true;
-        }
-      }
-      if (keep) {
-        filtered += line + '\n';
-      }
-    }
-
-    return filtered;
+    return diffContent;
   } catch (error) {
     throw new Error(`Failed to generate diff: ${error.message}`);
   }
@@ -113,7 +94,7 @@ ${diffContent}
         'anthropic-version': '2023-06-01'
       },
       body: JSON.stringify({
-        model: 'claude-3-sonnet-20240229',
+        model: 'claude-3-5-sonnet-20241022',
         max_tokens: 4096,
         temperature: 0.7,
         messages: [{
