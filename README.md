@@ -1,6 +1,6 @@
 # Claude Code Review Action
 
-A GitHub Action that performs automated code reviews using Claude AI.
+A GitHub Action that performs automated code reviews using Claude, an AI assistant from Anthropic.
 
 ## Features
 - Analyzes code changes in pull requests
