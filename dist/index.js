@@ -31862,6 +31862,8 @@ async function setupGitConfig() {
   // Configure git to fetch PR refs
   await exec('git', ['config', '--local', '--add', 'remote.origin.fetch', '+refs/pull/*/head:refs/remotes/origin/pr/*']);
   await exec('git', ['fetch', 'origin']);
+  await exec('git', ['config', '--global', 'user.name', 'claude-code-review[bot]']);
+  await exec('git', ['config', '--global', 'user.email', 'claude-code-review[bot]@users.noreply.github.com']);
 }
 
 async function getDiff(baseSha, headSha) {
