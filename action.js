@@ -96,8 +96,8 @@ ${diffContent}
         'anthropic-version': '2023-06-01'
       },
       body: JSON.stringify({
-        model: 'claude-3-5-sonnet-20241022',
-        max_tokens: 4096,
+        model: anthropicModel,
+        max_tokens: maxTokens,
         temperature: 0.7,
         messages: [{
           role: 'user',
@@ -140,6 +140,8 @@ async function run() {
     // Get inputs
     const token = core.getInput('github-token', { required: true });
     const anthropicKey = core.getInput('anthropic-key', { required: true });
+    const anthropicModel = core.getInput('anthropic-model', { required: true });
+    const maxTokens = core.getInput('max-tokens', { required: true });
     
     // Initialize GitHub client
     const octokit = github.getOctokit(token);
